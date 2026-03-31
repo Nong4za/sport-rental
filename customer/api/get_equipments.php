@@ -122,7 +122,8 @@ GROUP BY
     em.name,
     em.image_url,
     em.price_per_unit,
-    em.category_id
+    em.category_id,
+    bk.booked_qty
 HAVING available_stock > 0
 ORDER BY em.name
 ";
