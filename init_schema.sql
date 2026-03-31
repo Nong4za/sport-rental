@@ -3469,3 +3469,8 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- แก้ไขตัวอักษรซ่อนเร้น (\n, \r) และเปลี่ยน Backslash ให้ Linux อ่านออก
+UPDATE equipment_master SET image_url = REPLACE(REPLACE(image_url, '\n', ''), '\r', '');
+UPDATE venues SET image_url = REPLACE(REPLACE(image_url, '\n', ''), '\r', '');
+UPDATE venues SET image_url = REPLACE(image_url, '\\', '/');
